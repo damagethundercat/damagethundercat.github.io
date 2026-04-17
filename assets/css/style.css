@@ -12,7 +12,10 @@ body {
   color: #111;
   background: #fff;
   word-break: keep-all;
+  word-wrap: normal;
   overflow-wrap: normal;
+  line-break: strict;
+  hyphens: none;
 }
 
 h1,
@@ -25,7 +28,10 @@ p,
 li,
 blockquote {
   word-break: keep-all;
+  word-wrap: normal;
   overflow-wrap: normal;
+  line-break: strict;
+  hyphens: none;
 }
 
 a {
