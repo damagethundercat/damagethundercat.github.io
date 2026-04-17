@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
     {% assign cache_buster = site.time | date: '%s' %}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}?v={{ cache_buster }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}?v={{ cache_buster }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}?v={{ cache_buster }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/favicon-96x96.png' | relative_url }}?v={{ cache_buster }}">
-    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}?v={{ cache_buster }}" type="image/svg+xml">
-    <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}?v={{ cache_buster }}">
-    <link rel="mask-icon" href="{{ '/favicon.svg' | relative_url }}?v={{ cache_buster }}" color="#111111">
-    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}?v={{ cache_buster }}">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+    <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/favicon-96x96.png' | relative_url }}">
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
+    <link rel="mask-icon" href="{{ '/favicon.svg' | relative_url }}" color="#111111">
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ cache_buster }}">
   </head>
