@@ -1,0 +1,14 @@
+title: damagethundercat.github.io
+description: 개인 기록
+url: "https://damagethundercat.github.io"
+baseurl: ""
+timezone: Asia/Seoul
+
+permalink: /:year/:month/:day/:title.html
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

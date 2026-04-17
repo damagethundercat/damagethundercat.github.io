@@ -1,0 +1,54 @@
+html {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  margin: 2rem auto;
+  max-width: 42rem;
+  padding: 0 1rem;
+  color: #111;
+  background: #fff;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+a {
+  color: #0645ad;
+}
+
+a:visited {
+  color: #0b0080;
+}
+
+time {
+  color: #555;
+}
+
+.post-list {
+  padding-left: 1.4rem;
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 1px solid #aaa;
+  color: #333;
+}
+
+code,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95em;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
