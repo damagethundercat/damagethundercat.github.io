@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
-    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    {% assign cache_buster = site.time | date: '%s' %}
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}?v={{ cache_buster }}" type="image/svg+xml">
+    <link rel="icon" href="{{ '/favicon.png' | relative_url }}?v={{ cache_buster }}" type="image/png" sizes="64x64">
+    <link rel="shortcut icon" href="{{ '/favicon.png' | relative_url }}?v={{ cache_buster }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}?v={{ cache_buster }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ cache_buster }}">
   </head>
   <body>
     <main>
