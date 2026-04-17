@@ -12,3 +12,58 @@ layout: default
 
   {{ content }}
 </article>
+
+<section class="post-discussion" aria-labelledby="post-discussion-title">
+  <h2 id="post-discussion-title">이야기를 이어가기</h2>
+  <p>
+    <a
+      href="https://ig.me/m/yooong_k_"
+      data-share-post
+      data-share-title="{{ page.title | escape }}"
+      data-share-url="{{ page.url | absolute_url }}"
+    >인스타그램 DM으로 보내기</a>
+  </p>
+</section>
+
+<script>
+  (function () {
+    var link = document.querySelector("[data-share-post]");
+
+    if (!link) {
+      return;
+    }
+
+    link.addEventListener("click", async function (event) {
+      var title = link.getAttribute("data-share-title") || document.title;
+      var url = link.getAttribute("data-share-url") || window.location.href;
+      var text = title + "\n" + url;
+
+      event.preventDefault();
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: title,
+            text: title,
+            url: url
+          });
+          return;
+        } catch (error) {
+          if (error && error.name === "AbortError") {
+            return;
+          }
+        }
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (error) {
+          // Ignore clipboard failures and still open the DM fallback.
+        }
+      }
+
+      window.location.href = link.href;
+    });
+  }());
+</script>
