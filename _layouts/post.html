@@ -10,7 +10,8 @@ layout: default
     <p><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
   </header>
 
-  {{ content }}
+  {% capture post_content %}{{ content }}{% endcapture %}
+  {{ post_content | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' }}
 </article>
 
 <section class="post-discussion">

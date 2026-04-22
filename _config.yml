@@ -4,7 +4,7 @@ url: "https://damagethundercat.github.io"
 baseurl: ""
 timezone: Asia/Seoul
 
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:title.html
 markdown: kramdown
 
 exclude:
