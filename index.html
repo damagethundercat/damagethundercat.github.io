@@ -3,24 +3,38 @@ layout: default
 title: damagethundercat.github.io
 ---
 
-<h1 class="site-title">{{ site.title }}</h1>
+<header class="site-header">
+  <h1 class="site-title">{{ site.title }}</h1>
+  <p class="site-description">{{ site.description }}</p>
+  <nav class="site-nav" aria-label="사이트">
+    <a href="{{ site.contributing_url }}" target="_blank" rel="noopener noreferrer">글 보내기</a>
+    <a href="{{ site.repository_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+</header>
 
-{% if site.posts.size > 0 %}
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-        -
-        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        -
-        {% if post.author_url %}
-          <a href="{{ post.author_url | escape }}" target="_blank" rel="noopener noreferrer">{{ post.author | escape }}</a>
-        {% else %}
-          <span>{{ post.author | escape }}</span>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>아직 글이 없습니다.</p>
-{% endif %}
+<section class="post-index" aria-labelledby="post-index-title">
+  <h2 id="post-index-title">글</h2>
+
+  {% if site.posts.size > 0 %}
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <a class="post-list-title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          <p class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+            {% if post.author %}
+              ·
+              {% if post.author_url %}
+                <a href="{{ post.author_url | escape }}" target="_blank" rel="noopener noreferrer">{{ post.author | escape }}</a>
+              {% else %}
+                <span>{{ post.author | escape }}</span>
+              {% endif %}
+            {% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>아직 글이 없습니다.</p>
+  {% endif %}
+</section>
