@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 살아남으라는 명령
+author: yooong_k_
+author_url: https://ig.me/m/yooong_k_
 ---
 
 최근 [아이즈매거진에 업로드된 컨텐츠](https://eyesmag.com/posts/164213/ai-era-survivors-neurodiversity-karp)를 흥미롭게 잘 읽었다. 제목은 "AI 시대, 살아남는 사람은 따로 있다", 팔란티어의 CEO인 알렉스 카프의 발언을 토대로 다가오는 인공지능 시대에 "어떤 사고 방식이 끝까지 협상력을 갖나"라는 질문으로 재구성한 글이다. 글의 결론은 간단히 요약하자면 비정형적으로 사고하는 사람의 가치가 올라갈 것이며, 그것이 AI 시대의 새로운 인간형이라는 해석이다.

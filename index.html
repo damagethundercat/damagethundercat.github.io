@@ -10,7 +10,14 @@ title: damagethundercat.github.io
     {% for post in site.posts %}
       <li>
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        -
         <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        -
+        {% if post.author_url %}
+          <a href="{{ post.author_url | escape }}" target="_blank" rel="noopener noreferrer">{{ post.author | escape }}</a>
+        {% else %}
+          <span>{{ post.author | escape }}</span>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

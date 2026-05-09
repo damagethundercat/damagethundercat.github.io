@@ -1,5 +1,5 @@
 title: damagethundercat.github.io
-description: 개인 기록
+description: 워크숍 공동 블로그
 url: "https://damagethundercat.github.io"
 baseurl: ""
 timezone: Asia/Seoul
@@ -11,4 +11,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - CONTRIBUTING.md
   - vendor

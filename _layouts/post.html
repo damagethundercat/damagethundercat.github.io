@@ -7,13 +7,25 @@ layout: default
 <article>
   <header>
     <h1>{{ page.title | escape }}</h1>
-    <p><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
+    <p>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      {% if page.author %}
+        ·
+        {% if page.author_url %}
+          <a href="{{ page.author_url | escape }}" target="_blank" rel="noopener noreferrer">{{ page.author | escape }}</a>
+        {% else %}
+          <span>{{ page.author | escape }}</span>
+        {% endif %}
+      {% endif %}
+    </p>
   </header>
 
   {% capture post_content %}{{ content }}{% endcapture %}
   {{ post_content | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' }}
 </article>
 
-<section class="post-discussion">
-  <p><a href="https://ig.me/m/yooong_k_" target="_blank" rel="noopener noreferrer">저와 이야기를 이어가기 ...</a></p>
-</section>
+{% if page.author_url %}
+  <section class="post-discussion">
+    <p><a href="{{ page.author_url | escape }}" target="_blank" rel="noopener noreferrer">저와 이야기를 이어가기 ...</a></p>
+  </section>
+{% endif %}
