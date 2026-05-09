@@ -45,3 +45,15 @@ assets/images/posts/YYYY-MM-DD-slug/파일명
 - Jekyll build check가 통과해야 병합할 수 있습니다.
 
 운영자는 글의 공개 여부, 제목, 이미지 경로, 링크 안전성, 빌드 결과를 확인한 뒤 병합합니다.
+
+## 운영자 저장소 설정
+
+GitHub 저장소의 `Settings > Branches`에서 `main` 브랜치 보호 규칙을 켭니다.
+
+- Require a pull request before merging
+- Require approvals: 1
+- Require status checks to pass before merging
+- Require branches to be up to date before merging
+- Require conversation resolution before merging
+
+첫 PR에서 workflow가 한 번 실행된 뒤 required status check로 `Jekyll build / build`를 선택합니다.
