@@ -1,9 +1,7 @@
 title: damagethundercat.github.io
-description: 워크숍 공동 블로그
+description: 개인 기록
 url: "https://damagethundercat.github.io"
 baseurl: ""
-repository_url: "https://github.com/damagethundercat/damagethundercat.github.io"
-contributing_url: "https://github.com/damagethundercat/damagethundercat.github.io/blob/main/CONTRIBUTING.md"
 timezone: Asia/Seoul
 
 permalink: /:year/:title.html
@@ -13,5 +11,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - CONTRIBUTING.md
   - vendor

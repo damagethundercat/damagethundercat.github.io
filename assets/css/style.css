@@ -29,23 +29,6 @@ h3 {
   overflow-wrap: anywhere;
 }
 
-.site-header {
-  margin-bottom: 2.5rem;
-}
-
-.site-description {
-  margin: -0.75rem 0 0;
-  color: #555;
-}
-
-.site-nav {
-  margin-top: 1rem;
-}
-
-.site-nav a + a {
-  margin-left: 0.75rem;
-}
-
 p,
 li,
 blockquote {
@@ -70,21 +53,7 @@ time {
 }
 
 .post-list {
-  padding-left: 0;
-  list-style: none;
-}
-
-.post-list li {
-  margin: 0 0 1.25rem;
-}
-
-.post-list-title {
-  font-weight: 600;
-}
-
-.post-meta {
-  margin: 0.25rem 0 0;
-  color: #555;
+  padding-left: 1.4rem;
 }
 
 .post-discussion {
