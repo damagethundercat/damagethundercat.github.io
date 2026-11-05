@@ -6,14 +6,25 @@ title: damagethundercat.github.io
 <h1 class="site-title">{{ site.title }}</h1>
 
 {% if site.posts.size > 0 %}
-  <ul class="post-list">
+  <ol class="entries">
     {% for post in site.posts %}
-      <li>
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      {% assign entry_id = post.url | split: '/' | last | remove: '.html' %}
+      <li class="entry" id="{{ entry_id }}">
+        <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="body-{{ entry_id }}">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          <span class="entry-title">{{ post.title | escape }}</span>
+        </button>
+        <div class="entry-body" id="body-{{ entry_id }}">
+          <div class="entry-inner">
+            <div class="entry-content prose">
+            {% include post-body.html content=post.content %}
+            <p class="entry-link"><a href="{{ post.url | relative_url }}">이 글 주소</a></p>
+            </div>
+          </div>
+        </div>
       </li>
     {% endfor %}
-  </ul>
+  </ol>
 {% else %}
   <p>아직 글이 없습니다.</p>
 {% endif %}

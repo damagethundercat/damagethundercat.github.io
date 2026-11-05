@@ -19,6 +19,19 @@ display_url: https://damagethundercat.github.io
 media_folder: assets/images
 public_folder: /assets/images
 
+# 클립보드로 붙여넣은 이미지를 날짜-임의ID.webp 로 저장하고 긴 변 1600px 이하로 줄인다.
+# GIF는 움직임을 지키려고 변환하지 않는다.
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      filename_template: "{{year}}{{month}}{{day}}-{{uuid_short}}"
+      transformations:
+        jpeg: { format: webp, quality: 85, width: 1600, height: 1600 }
+        png: { format: webp, quality: 85, width: 1600, height: 1600 }
+        heic: { format: webp, quality: 85, width: 1600, height: 1600 }
+        webp: { format: webp, quality: 85, width: 1600, height: 1600 }
+
 collections:
   - name: posts
     label: 글

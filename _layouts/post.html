@@ -2,16 +2,17 @@
 layout: default
 ---
 
-<p><a href="{{ '/' | relative_url }}">처음으로</a></p>
+<p class="back"><a href="{{ '/' | relative_url }}">처음으로</a></p>
 
 <article>
-  <header>
-    <h1>{{ page.title | escape }}</h1>
-    <p><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
+  <header class="post-header">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+    <h1 class="post-title">{{ page.title | escape }}</h1>
   </header>
 
-  {% capture post_content %}{{ content }}{% endcapture %}
-  {{ post_content | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' }}
+  <div class="prose">
+    {% include post-body.html content=content %}
+  </div>
 </article>
 
 <section class="post-discussion">

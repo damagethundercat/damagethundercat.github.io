@@ -1,0 +1,2 @@
+{% capture post_body %}{{ include.content }}{% endcapture %}
+{{ post_body | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' }}

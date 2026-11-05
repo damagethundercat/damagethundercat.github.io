@@ -11,6 +11,47 @@
     <script>
       // 미리보기를 실제 블로그와 같은 모양으로
       CMS.registerPreviewStyle('/assets/css/style.css');
+      CMS.registerPreviewStyle(
+        '.img-word, a[href$=".webp"] { text-decoration: underline dotted #8a8a8a; }',
+        { raw: true }
+      );
+
+      // 이미지 단어: 단어 위에 올리면(폰은 누르면) 이미지가 뜬다.
+      // 마크다운에는 [단어](/assets/images/파일) 로 저장된다.
+      var esc = function (s) {
+        return String(s).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      };
+      CMS.registerEditorComponent({
+        id: 'image-word',
+        label: '이미지 단어',
+        icon: 'image_search',
+        trigger: 'button',
+        mode: 'dialog',
+        summary: '{{word}}',
+        thumbnail: 'image',
+        fields: [
+          { name: 'word', label: '단어', widget: 'string' },
+          {
+            name: 'image',
+            label: '이미지',
+            widget: 'image',
+            hint: '이미지 칸을 누르고 Ctrl+V(⌘V)로 붙여넣을 수 있습니다.',
+          },
+        ],
+        pattern: /(?<!!)\[([^\]\n]+)\]\((\/assets\/images\/[^)\s]+\.(?:webp|png|jpe?g|gif|avif))\)/,
+        fromBlock: function (m) {
+          return { word: m[1].replace(/\\([\[\]])/g, '$1'), image: m[2] };
+        },
+        toBlock: function (p) {
+          var word = String(p.word || '').replace(/([\[\]])/g, '\\$1');
+          return '[' + word + '](' + (p.image || '') + ')';
+        },
+        toPreview: function (p) {
+          return '<a class="img-word" href="' + esc(p.image || '') + '">' + esc(p.word || '') + '</a>';
+        },
+      });
     </script>
   </body>
 </html>
