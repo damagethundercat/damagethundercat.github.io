@@ -1,0 +1,42 @@
+# Sveltia CMS 설정: https://sveltiacms.app/en/docs
+backend:
+  name: github
+  repo: damagethundercat/damagethundercat.github.io
+  branch: main
+  # GitHub OAuth 버튼은 인증 중계 서버(sveltia-cms-auth)를 둔 뒤에 oauth를 추가한다.
+  auth_methods: [token]
+  commit_messages:
+    create: "Add post: {{slug}}"
+    update: "Update post: {{slug}}"
+    delete: "Delete post: {{slug}}"
+    uploadMedia: "Upload {{path}}"
+    deleteMedia: "Delete {{path}}"
+
+app_title: damagethundercat 글 관리
+site_url: https://damagethundercat.github.io
+display_url: https://damagethundercat.github.io
+
+media_folder: assets/images
+public_folder: /assets/images
+
+collections:
+  - name: posts
+    label: 글
+    label_singular: 글
+    folder: _posts
+    create: true
+    # 파일 이름 = 날짜-슬러그. 슬러그가 글 주소가 된다 (/2026/<슬러그>.html).
+    slug:
+      template: "{{year}}-{{month}}-{{day}}-{{slug}}"
+      editable: [create]
+    summary: "{{title}}"
+    sortable_fields: [title]
+    fields:
+      - { name: layout, widget: hidden, default: post }
+      - { name: title, label: 제목, widget: string }
+      - name: published
+        label: 공개
+        widget: boolean
+        default: false
+        hint: 끄면 저장소에만 남고 블로그에는 보이지 않습니다.
+      - { name: body, label: 본문, widget: markdown }
